@@ -1,7 +1,7 @@
 <template>
-<svg
-    version="1.1"
+  <svg
     id="Layer_1"
+    version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     x="0px"
@@ -65,7 +65,8 @@
         Pgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5
         vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG
         5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL
-        3N2ZyI+CjwvZz4KPC9nPjwvc3ZnPg==" />
+        3N2ZyI+CjwvZz4KPC9nPjwvc3ZnPg=="
+    />
   </svg>
 </template>
 

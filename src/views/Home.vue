@@ -1,16 +1,18 @@
 <template>
   <div>
     <mv-countries :countries="countries" />
+    <mv-pagination />
   </div>
 </template>
 
 <script>
 import api from '../api';
 import MvCountries from '../components/MvCountries.vue';
+import MvPagination from '../components/MvPagination.vue';
 
 export default {
   name: 'Home',
-  components: { MvCountries },
+  components: { MvCountries, MvPagination },
 
   data() {
     return {

@@ -1,33 +1,50 @@
 <template>
   <div>
     <div class="container mt-5">
-      <select class="form-select form-width" aria-label="Escolha uma opção">
-        <option selected disabled>Escolha uma opção</option>
-        <option value="1">Região</option>
-        <option value="2">Capital</option>
-        <option value="3">Língua</option>
-        <option value="4">País</option>
-        <option value="5">Código de ligação</option>
+      <select
+        class="form-select form-width"
+        aria-label="Escolha uma opção"
+      >
+        <option
+          selected
+          disabled
+        >
+          Escolha uma opção
+        </option>
+        <option value="1">
+          Região
+        </option>
+        <option value="2">
+          Capital
+        </option>
+        <option value="3">
+          Língua
+        </option>
+        <option value="4">
+          País
+        </option>
+        <option value="5">
+          Código de ligação
+        </option>
       </select>
       <mv-button>
-          Pesquisar
+        Pesquisar
       </mv-button>
     </div>
     <div class="d-flex flex-wrap justify-content-between mt-5 mx-4">
-    <div
-    v-for="country in countries"
-    :key="country.name"
-    >
-      <div>
-        <img
-          class="img-fluid img-width m-4"
-          :src="`${country.flag}`"
-          :alt="country.name" />
-
+      <div
+        v-for="country in countries"
+        :key="country.name"
+      >
+        <div>
+          <img
+            class="img-fluid img-width m-4"
+            :src="`${country.flag}`"
+            :alt="country.name"
+          >
+        </div>
       </div>
-
     </div>
-</div>
   </div>
 </template>
 

@@ -9,6 +9,7 @@
     <router-link
       to="/"
     >
-    Voltar para pagina de Inicio</router-link>
+      Voltar para pagina de Inicio
+    </router-link>
   </div>
 </template>

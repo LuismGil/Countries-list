@@ -1,9 +1,12 @@
 <template>
   <div>
-    <button type="button" class="btn btn-outline btn-color">
-      <slot name="btn"></slot>
-      <slot></slot>
-      </button>
+    <button
+      type="button"
+      class="btn btn-outline btn-color"
+    >
+      <slot name="btn" />
+      <slot />
+    </button>
   </div>
 </template>
 

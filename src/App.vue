@@ -3,7 +3,6 @@
     <mv-header />
     <router-view />
   </main>
-
 </template>
 
 <script>
