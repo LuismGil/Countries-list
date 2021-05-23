@@ -1,0 +1,46 @@
+<template>
+  <div>
+    <div class="container">
+    <select class="form-select form-width" aria-label="Escolha uma opção">
+      <option selected disabled>Escolha uma opção</option>
+      <option value="1">Região</option>
+      <option value="2">Capital</option>
+      <option value="3">Língua</option>
+      <option value="4">País</option>
+      <option value="5">Código de ligação</option>
+    </select>
+    <mv-button>
+      <template v-slot:btn class="">
+        Pesquisar
+      </template>
+    </mv-button>
+    </div>
+
+  </div>
+</template>
+
+<script>
+import MvButton from './MvButton.vue';
+
+export default {
+  components: { MvButton },
+
+};
+</script>
+
+<style>
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-width {
+  width: 200px;
+}
+
+.test {
+  background-color: purple;
+  color: white
+}
+
+</style>

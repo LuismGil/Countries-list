@@ -1,0 +1,36 @@
+<template>
+  <div>
+    <button type="button" class="btn btn-outline btn-color">
+      <img src="../assets/back.png" alt="back-arrow"
+      width="20"
+      height="20"
+      class="d-inline-block align-text-top">
+      <img class="btn-key" src="../assets/btn-key.js" />
+      Voltar
+      </button>
+  </div>
+</template>
+
+<script>
+export default {
+
+};
+</script>
+
+<style>
+.btn-color {
+  border-color: #5600AB;
+  color: #5600AB;
+}
+
+.btn-color:hover {
+  color: #fff;
+  background-color: #c599f2;
+}
+
+.btn-key {
+  width: 20px;
+  height: 20px;
+}
+
+</style>
