@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container">
+    <div class="container mt-5">
       <select class="form-select form-width" aria-label="Escolha uma opção">
         <option selected disabled>Escolha uma opção</option>
         <option value="1">Região</option>
@@ -13,37 +13,21 @@
           Pesquisar
       </mv-button>
     </div>
-    <div>
-      <div class="container">
-        <div class="card">
-          Flags
-
-        </div>
-        <div class="card">
-          Flags
-
-        </div>
-        <div class="card">
-          Flags
-
-        </div>
-        <div class="card">
-          Flags
-
-        </div>
-        <div class="card">
-          Flags
-
-        </div>
-        <div class="card">
-          Flags
-
-        </div>
+    <div class="d-flex flex-wrap justify-content-between mt-5 mx-4">
+    <div
+    v-for="country in countries"
+    :key="country.name"
+    >
+      <div>
+        <img
+          class="img-fluid img-width m-4"
+          :src="`${country.flag}`"
+          :alt="country.name" />
 
       </div>
 
     </div>
-
+</div>
   </div>
 </template>
 
@@ -73,6 +57,11 @@ export default {
 
 .form-width {
   width: 200px;
+}
+
+.img-width {
+  width: 320px !important;
+  height: 200px !important;
 }
 
 </style>
