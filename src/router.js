@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
 import Home from './views/Home.vue';
+import CountryDetails from './views/CountryDetails.vue';
 import About from './views/About.vue';
 import Error from './views/Error.vue';
 
@@ -15,6 +16,12 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home,
+    },
+    {
+      path: '/country',
+      name: 'countryDetails',
+      component: CountryDetails,
+      props: true,
     },
     {
       path: '/about',

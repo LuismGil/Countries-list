@@ -36,13 +36,27 @@
         v-for="country in countries"
         :key="country.name"
       >
-        <div>
-          <img
-            class="img-fluid img-width m-4"
-            :src="`${country.flag}`"
-            :alt="country.name"
-          >
-        </div>
+        <router-link
+          :to="{ name: 'countryDetails', params:
+            {
+              flag: country.flag,
+              name: country.name,
+              capital: country.capital,
+              region: country.region,
+              subregion: country.subregion,
+              population: country.population,
+              languages: country.languages,
+              borders: country.borders,
+            } }"
+        >
+          <div class="card">
+            <img
+              class="img-fluid img-width m-4"
+              :src="`${country.flag}`"
+              :alt="country.name"
+            >
+          </div>
+        </router-link>
       </div>
     </div>
   </div>
