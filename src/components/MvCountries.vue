@@ -3,7 +3,7 @@
     <div class="container mt-5">
       <select
         class="form-select form-width"
-        aria-label="Escolha uma opção"
+        aria-label="Filtrar por"
       >
         <option
           selected
@@ -49,13 +49,11 @@
               borders: country.borders,
             } }"
         >
-          <div class="card">
-            <img
-              class="img-fluid img-width m-4"
-              :src="`${country.flag}`"
-              :alt="country.name"
-            >
-          </div>
+          <img
+            class="img-fluid img-width m-4"
+            :src="`${country.flag}`"
+            :alt="country.name"
+          >
         </router-link>
       </div>
     </div>
@@ -75,6 +73,11 @@ export default {
       default: () => [],
     },
   },
+  methods: {
+    getRegion() {
+
+    },
+  },
 };
 
 </script>
@@ -91,8 +94,9 @@ export default {
 }
 
 .img-width {
-  width: 320px !important;
   height: 200px !important;
+  object-fit: cover;
+  width: 320px !important;
 }
 
 </style>

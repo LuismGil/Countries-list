@@ -17,6 +17,7 @@ export default {
   data() {
     return {
       countries: [],
+      regionList: [],
     };
   },
 
@@ -25,6 +26,14 @@ export default {
       .then((countries) => {
         (this.countries = countries);
       });
+  },
+  methods: {
+    getRegion(reg) {
+      api.getRegion(reg)
+        .then((region) => {
+          (this.regionList = region);
+        });
+    },
   },
 
 };

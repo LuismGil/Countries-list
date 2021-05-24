@@ -17,6 +17,10 @@ export default {
 </script>
 
 <style>
+main {
+  background-color: #f5f5f5;
+}
+
 #app {
   color: #2c3e50;
   font-family: Avenir, Helvetica, Arial, sans-serif;

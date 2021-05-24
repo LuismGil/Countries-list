@@ -8,6 +8,13 @@ function getCountries() {
     .catch((error) => console.error(error));
 }
 
+function getRegion(reg) {
+  return fetch(`${url}/region/${reg}`)
+    .then(((res) => res.json()))
+    .then((res) => res);
+}
+
 export default {
   getCountries,
+  getRegion,
 };

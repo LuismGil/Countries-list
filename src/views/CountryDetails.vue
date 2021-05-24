@@ -7,6 +7,7 @@
           height="250"
           class="img-fluid"
           :src="flag"
+          :alt="name"
         >
       </div>
 
@@ -48,14 +49,22 @@
     </div>
     <div class="mt-5">
       <b>Países Vizinhos:</b>
-      <span
-        v-for="border in borders"
-        :key="border"
-      >
-        <span>
-          {{ border }}
+      <div class="d-flex flex-wrap justify-content-between mt-5 mx-4">
+        <span
+          v-for="border in borders"
+          :key="border"
+        >
+
+          <img
+            width="300"
+            height="250"
+            class="img-fluid img-width m-4"
+            :src="`https://restcountries.eu/data/${border.toLowerCase()}.svg`"
+            :alt="border"
+          >
+
         </span>
-      </span>
+      </div>
     </div>
     <mv-pagination />
   </div>

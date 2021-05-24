@@ -79,15 +79,15 @@ export default {
 }
 
 .page-item-bs {
--webkit-box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.2);
-   box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.2);
 }
 
 .page-item-rl {
-  margin-top: 2px;
-  height: 35px !important;
   -webkit-box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.2);
-   box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.2);
+  height: 35px !important;
+  margin-top: 2px;
 }
 
 .page-link {
