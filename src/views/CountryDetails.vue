@@ -1,46 +1,48 @@
 <template>
   <div>
-    <div class="container-flag mt-5">
+    <div
+      class="container-flag mt-5"
+    >
       <div>
         <img
           width="300"
           height="250"
           class="img-fluid"
-          :src="flag"
-          :alt="name"
+          :src="country.flag"
+          :alt="country.name"
         >
       </div>
 
       <div class="container-info mx-5">
         <span>
           <b>Nome:</b>
-          {{ name }}
+          {{ country.name }}
         </span>
 
         <span>
           <b>Capital:</b>
-          {{ capital }}
+          {{ country.capital }}
         </span>
 
         <span>
           <b>Região:</b>
-          {{ region }}
+          {{ country.region }}
         </span>
 
         <span>
           <b>Sub-região:</b>
-          {{ subregion }}
+          {{ country.subregion }}
         </span>
 
         <span>
           <b>População:</b>
-          {{ population }}
+          {{ country.population }}
         </span>
 
         <span>
           <b>Linguas: </b>
           <span
-            v-for="language in languages"
+            v-for="language in country.languages"
             :key="language.nativeName"
           >{{ language.nativeName }}
           </span>
@@ -49,20 +51,21 @@
     </div>
     <div class="mt-5">
       <b>Países Vizinhos:</b>
+
       <div class="d-flex flex-wrap justify-content-between mt-5 mx-4">
         <span
-          v-for="border in borders"
+          v-for="border in country.borders"
           :key="border"
         >
-
-          <img
-            width="300"
-            height="250"
-            class="img-fluid img-width m-4"
-            :src="`https://restcountries.eu/data/${border.toLowerCase()}.svg`"
-            :alt="border"
-          >
-
+          <router-link :to="`/country/${border.toLowerCase()}`">
+            <img
+              width="300"
+              height="250"
+              class="img-fluid img-width m-4"
+              :src="`https://restcountries.eu/data/${border.toLowerCase()}.svg`"
+              :alt="border"
+            >
+          </router-link>
         </span>
       </div>
     </div>
@@ -71,28 +74,31 @@
 </template>
 
 <script>
+import api from '../api';
 import MvPagination from '../components/MvPagination.vue';
 
 export default {
   name: 'CountryDetails',
   components: { MvPagination },
 
-  props: {
-    flag: { type: String, default: '' },
-    name: { type: String, default: '' },
-    capital: { type: String, default: '' },
-    region: { type: String, default: '' },
-    subregion: { type: String, default: '' },
-    population: { type: Number, default: 0 },
-    languages: {
-      type: Array,
-      default: () => [],
-    },
-    borders: {
-      type: Array,
-      default: () => [],
+  data() {
+    return {
+      country: {},
+    };
+  },
+
+  created() {
+    this.getCountry();
+  },
+
+  methods: {
+    getCountry() {
+      const { alpha3Code } = this.$route.params;
+      api.getCountry(alpha3Code)
+        .then((country) => { this.country = country; });
     },
   },
+
 };
 </script>
 

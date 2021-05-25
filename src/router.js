@@ -18,7 +18,7 @@ export default new Router({
       component: Home,
     },
     {
-      path: '/country',
+      path: '/country/:alpha3Code',
       name: 'countryDetails',
       component: CountryDetails,
       props: true,

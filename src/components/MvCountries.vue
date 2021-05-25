@@ -11,22 +11,23 @@
         >
           Escolha uma opção
         </option>
-        <option value="1">
+        <option value="Região">
           Região
         </option>
-        <option value="2">
+        <option value="Capital">
           Capital
         </option>
-        <option value="3">
+        <option value="Língua">
           Língua
         </option>
-        <option value="4">
+        <option value="País">
           País
         </option>
-        <option value="5">
+        <option value="Código de ligação">
           Código de ligação
         </option>
       </select>
+
       <mv-button>
         Pesquisar
       </mv-button>
@@ -37,17 +38,8 @@
         :key="country.name"
       >
         <router-link
-          :to="{ name: 'countryDetails', params:
-            {
-              flag: country.flag,
-              name: country.name,
-              capital: country.capital,
-              region: country.region,
-              subregion: country.subregion,
-              population: country.population,
-              languages: country.languages,
-              borders: country.borders,
-            } }"
+          :to="{ name: 'countryDetails', params: { alpha3Code: country.alpha3Code.toLowerCase() }
+          }"
         >
           <img
             class="img-fluid img-width m-4"
@@ -73,6 +65,13 @@ export default {
       default: () => [],
     },
   },
+
+  data() {
+    return {
+
+    };
+  },
+
   methods: {
     getRegion() {
 
@@ -87,6 +86,15 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.form-select {
+  background-color: #f5f5f5;
+  border: none;
+  border-bottom: 1px solid #948e8e;
+  border-radius: unset;
+  color: #948e8e;
+
 }
 
 .form-width {
