@@ -27,6 +27,18 @@
           Código de ligação
         </option>
       </select>
+      <input
+        id="filterCountry"
+        v-model="filterCountry"
+        placeholder="Filtrar por País"
+        type="text"
+      >
+      <input
+        id="filterCapital"
+        v-model="filterCapital"
+        placeholder="Filtrar por capital"
+        type="text"
+      >
 
       <mv-button>
         Pesquisar
@@ -34,7 +46,7 @@
     </div>
     <div class="d-flex flex-wrap justify-content-between mt-5 mx-4">
       <div
-        v-for="country in countries"
+        v-for="country in filteredCountries"
         :key="country.name"
       >
         <router-link
@@ -68,8 +80,39 @@ export default {
 
   data() {
     return {
+      filterCountry: '',
+      filterCapital: '',
 
     };
+  },
+
+  computed: {
+
+    filteredCountries() {
+      if (!this.filterCountry && !this.filterCapital) {
+        return this.countries;
+      }
+
+      if (this.filterCountry) {
+        return this.countries.filter(
+          (n) => n.name.toLowerCase()
+            .includes(this.filterCountry.toLowerCase()),
+          // || n.capital.toLowerCase().includes(this.filterCountry.toLowerCase())
+          // || n.region.toLowerCase().includes(this.filterCountry.toLowerCase())
+          // || n.languages.iso639_1.toLowerCase().includes(this.filterCountry.toLowerCase())
+          // || n.callingCodes.includes(this.filterCountry),
+        );
+      }
+
+      if (this.filterCapital) {
+        return this.countries.filter(
+          (n) => n.capital.toLowerCase().includes(this.filterCapital.toLowerCase()),
+
+        );
+      }
+
+      return this.countries;
+    },
   },
 
   methods: {

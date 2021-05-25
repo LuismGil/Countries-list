@@ -57,7 +57,10 @@
           v-for="border in country.borders"
           :key="border"
         >
-          <router-link :to="`/country/${border.toLowerCase()}`">
+          <a
+            :href="$router.resolve({name: 'countryDetails',
+                                    params: { alpha3Code:`${border.toLowerCase()}`}}).href"
+          >
             <img
               width="300"
               height="250"
@@ -65,7 +68,7 @@
               :src="`https://restcountries.eu/data/${border.toLowerCase()}.svg`"
               :alt="border"
             >
-          </router-link>
+          </a>
         </span>
       </div>
     </div>
