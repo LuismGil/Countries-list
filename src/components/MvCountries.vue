@@ -206,9 +206,9 @@ export default {
 }
 
 .container-label {
+  color: #5600AB;
   margin-top: 10px;
   margin-left: 34px !important;
-  color: #5600AB;
 }
 
 .form-select {
@@ -241,26 +241,24 @@ export default {
     object-fit: cover;
     width: 280px !important;
 }
- @media (min-width:  479px) {
 
-.container {
-  flex-direction: row;
-  justify-content: space-between;
+  @media (min-width:  479px) {
+
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .form-input {
+    border-width: 1px;
+    height: 38px;
+    margin-top: 14px;
+    padding: 6px 12px;
+  }
+
+  .img-width {
+    height: 200px !important;
+    width: 320px !important;
+  }
 }
-
-.form-input {
-  border-width: 1px;
-  height: 38px;
-  margin-top: 35px;
-  padding: 6px 12p1x4;
-
-}
-
-.img-width {
-  height: 200px !important;
-  object-fit: cover;
-  width: 320px !important;
-}
-
- }
 </style>

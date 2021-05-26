@@ -28,15 +28,6 @@ export default {
       });
   },
 
-  methods: {
-    getRegion(reg) {
-      api.getRegion(reg)
-        .then((region) => {
-          (this.regionList = region);
-        });
-    },
-  },
-
 };
 </script>
 

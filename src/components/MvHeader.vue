@@ -36,6 +36,6 @@ export default {
 
 <style>
 .navbar-shadow {
-  box-shadow: 0px 3px 6px 0px #b6b2b2;
+  box-shadow: 0 3px 6px 0 #b6b2b2;
 }
 </style>

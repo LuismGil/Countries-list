@@ -108,10 +108,11 @@ export default {
 </script>
 
 <style>
+
 .container-flag {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .container-info {
@@ -129,22 +130,22 @@ export default {
   margin-left: 65px;
 }
 
-@media (min-width: 479px) {
-.container-flag {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
+  @media (min-width: 479px) {
+    .container-flag {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
 
-.container-span {
-  margin: 3px;
-  padding: 3px;
-}
+    .container-span {
+      margin: 3px;
+      padding: 3px;
+    }
 
-.container-border {
-  margin-left: 45px;
-}
+    .container-border {
+      margin-left: 45px;
+    }
 
-}
+  }
 
 </style>
