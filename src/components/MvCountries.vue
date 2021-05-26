@@ -1,42 +1,71 @@
 <template>
   <div>
     <div class="container mt-5">
-      <select
-        class="form-select form-width"
-        aria-label="Filtrar por"
-      >
-        <option
-          selected
-          disabled
+      <div>
+        <label>Filtrar por</label>
+        <select
+          v-model="selected"
+          class="form-select form-width"
+          aria-label="Filtrar por"
         >
-          Escolha uma opção
-        </option>
-        <option value="Região">
-          Região
-        </option>
-        <option value="Capital">
-          Capital
-        </option>
-        <option value="Língua">
-          Língua
-        </option>
-        <option value="País">
-          País
-        </option>
-        <option value="Código de ligação">
-          Código de ligação
-        </option>
-      </select>
+          <option
+            disabled
+            value=""
+          >
+            Escolha uma opção
+          </option>
+          <option
+            v-for="select in options"
+            :key="select.value"
+          >
+            {{ select.name }}
+          </option>
+        </select>
+      </div>
+
+      <div v-if="selected === 'Região'">
+        <label>Filtrar por região</label>
+        <select
+          id="filterRegion"
+          v-model="filterRegion"
+          class="form-select form-width"
+          aria-label="Filtrar por"
+        >
+          <option
+            v-for="selectRegion in regions"
+            :key="selectRegion.value"
+          >
+            {{ selectRegion.name }}
+          </option>
+        </select>
+      </div>
+
       <input
+        v-if="selected === 'País'"
         id="filterCountry"
         v-model="filterCountry"
         placeholder="Filtrar por País"
         type="text"
       >
       <input
+        v-if="selected === 'Capital'"
         id="filterCapital"
         v-model="filterCapital"
         placeholder="Filtrar por capital"
+        type="text"
+      >
+      <input
+        v-if="selected === 'Língua'"
+        id="filterLanguage"
+        v-model="filterLanguage"
+        placeholder="Filtrar por língua"
+        type="text"
+      >
+      <input
+        v-if="selected === 'Código de ligação'"
+        id="filterCallingCodes"
+        v-model="filterCallingCodes"
+        placeholder="Filtrar por codigo de ligação"
         type="text"
       >
 
@@ -82,6 +111,24 @@ export default {
     return {
       filterCountry: '',
       filterCapital: '',
+      filterRegion: '',
+      filterLanguage: '',
+      filterCallingCodes: '',
+      selected: '',
+      options: [
+        { value: 0, name: 'Região' },
+        { value: 1, name: 'Capital' },
+        { value: 2, name: 'Língua' },
+        { value: 3, name: 'País' },
+        { value: 4, name: 'Código de ligação' },
+      ],
+      regions: [
+        { value: 0, name: 'Africa' },
+        { value: 1, name: 'Americas' },
+        { value: 2, name: 'Asia' },
+        { value: 3, name: 'Europe' },
+        { value: 4, name: 'Oceania' },
+      ],
 
     };
   },
@@ -89,7 +136,11 @@ export default {
   computed: {
 
     filteredCountries() {
-      if (!this.filterCountry && !this.filterCapital) {
+      if (!this.filterCountry
+      && !this.filterCapital
+      && !this.filterRegion
+      && !this.filterLanguage
+      && !this.filterCallingCodes) {
         return this.countries;
       }
 
@@ -97,10 +148,6 @@ export default {
         return this.countries.filter(
           (n) => n.name.toLowerCase()
             .includes(this.filterCountry.toLowerCase()),
-          // || n.capital.toLowerCase().includes(this.filterCountry.toLowerCase())
-          // || n.region.toLowerCase().includes(this.filterCountry.toLowerCase())
-          // || n.languages.iso639_1.toLowerCase().includes(this.filterCountry.toLowerCase())
-          // || n.callingCodes.includes(this.filterCountry),
         );
       }
 
@@ -111,13 +158,26 @@ export default {
         );
       }
 
+      if (this.filterRegion) {
+        return this.countries.filter(
+          (n) => n.region.toLowerCase().includes(this.filterRegion.toLowerCase()),
+
+        );
+      }
+
+      if (this.filterLanguage) {
+        return this.countries.filter(
+          (n) => n.languages.includes(this.filterLanguage),
+        );
+      }
+
+      if (this.filterCallingCodes) {
+        return this.countries.filter(
+          (n) => n.callingCodes.includes(this.filterCallingCodes),
+        );
+      }
+
       return this.countries;
-    },
-  },
-
-  methods: {
-    getRegion() {
-
     },
   },
 };
