@@ -36,7 +36,7 @@
             href="#"
           >3</a>
         </li>
-        <li class="page-item mx-2 page-item-bs">
+        <!-- <li class="page-item mx-2 page-item-bs">
           <a
             class="page-link"
             href="#"
@@ -47,7 +47,7 @@
             class="page-link"
             href="#"
           >5</a>
-        </li>
+        </li> -->
 
         <li class="page-item mx-2">
           <a
@@ -75,6 +75,7 @@ export default {
 <style>
 .pagination {
   margin: 20px;
+  margin-bottom: 50px;
   padding: 20px;
 }
 

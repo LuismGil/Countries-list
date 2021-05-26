@@ -2,7 +2,9 @@
   <div>
     <div class="container mt-5">
       <div>
-        <label>Filtrar por</label>
+        <label class="container-label">
+          Filtrar por
+        </label>
         <select
           v-model="selected"
           class="form-select form-width"
@@ -24,7 +26,9 @@
       </div>
 
       <div v-if="selected === 'Região'">
-        <label>Filtrar por região</label>
+        <label class="container-label">
+          Filtrar por região
+        </label>
         <select
           id="filterRegion"
           v-model="filterRegion"
@@ -44,6 +48,7 @@
         v-if="selected === 'País'"
         id="filterCountry"
         v-model="filterCountry"
+        class="form-input"
         placeholder="Filtrar por País"
         type="text"
       >
@@ -51,6 +56,7 @@
         v-if="selected === 'Capital'"
         id="filterCapital"
         v-model="filterCapital"
+        class="form-input"
         placeholder="Filtrar por capital"
         type="text"
       >
@@ -58,6 +64,7 @@
         v-if="selected === 'Língua'"
         id="filterLanguage"
         v-model="filterLanguage"
+        class="form-input"
         placeholder="Filtrar por língua"
         type="text"
       >
@@ -65,11 +72,12 @@
         v-if="selected === 'Código de ligação'"
         id="filterCallingCodes"
         v-model="filterCallingCodes"
+        class="form-input"
         placeholder="Filtrar por codigo de ligação"
         type="text"
       >
 
-      <mv-button>
+      <mv-button class="mt-3 container-button">
         Pesquisar
       </mv-button>
     </div>
@@ -185,10 +193,22 @@ export default {
 </script>
 
 <style>
+
 .container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
+  margin-bottom: 0;
+}
+
+.container-button {
+  margin-left: 65%;
+}
+
+.container-label {
+  margin-top: 10px;
+  margin-left: 34px !important;
+  color: #5600AB;
 }
 
 .form-select {
@@ -197,11 +217,43 @@ export default {
   border-bottom: 1px solid #948e8e;
   border-radius: unset;
   color: #948e8e;
+  margin: 0 auto;
+  margin-left: 34px !important;
+  width: 280px !important;
 
 }
 
 .form-width {
   width: 200px;
+}
+
+.form-input {
+  border-width: 1px;
+  height: 38px;
+  margin-left: 34px !important;
+  margin-top: 14px;
+  padding: 6px 12px;
+  width: 280px !important;
+}
+
+.img-width {
+    height: 150px !important;
+    object-fit: cover;
+    width: 280px !important;
+}
+ @media (min-width:  479px) {
+
+.container {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.form-input {
+  border-width: 1px;
+  height: 38px;
+  margin-top: 35px;
+  padding: 6px 12p1x4;
+
 }
 
 .img-width {
@@ -210,4 +262,5 @@ export default {
   width: 320px !important;
 }
 
+ }
 </style>

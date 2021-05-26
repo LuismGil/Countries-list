@@ -7,39 +7,39 @@
         <img
           width="300"
           height="250"
-          class="img-fluid"
+          class="img-fluid img-width"
           :src="country.flag"
           :alt="country.name"
         >
       </div>
 
       <div class="container-info mx-5">
-        <span>
+        <span class="container-span">
           <b>Nome:</b>
           {{ country.name }}
         </span>
 
-        <span>
+        <span class="container-span">
           <b>Capital:</b>
           {{ country.capital }}
         </span>
 
-        <span>
+        <span class="container-span">
           <b>Região:</b>
           {{ country.region }}
         </span>
 
-        <span>
+        <span class="container-span">
           <b>Sub-região:</b>
           {{ country.subregion }}
         </span>
 
-        <span>
+        <span class="container-span">
           <b>População:</b>
           {{ country.population }}
         </span>
 
-        <span>
+        <span class="container-span">
           <b>Linguas: </b>
           <span
             v-for="language in country.languages"
@@ -50,7 +50,9 @@
       </div>
     </div>
     <div class="mt-5">
-      <b>Países Vizinhos:</b>
+      <b class="container-border">
+        Países Vizinhos:
+      </b>
 
       <div class="d-flex flex-wrap justify-content-between mt-5 mx-4">
         <span
@@ -108,14 +110,41 @@ export default {
 <style>
 .container-flag {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container-info {
   display: flex;
   flex-direction: column;
   justify-content: center
+}
+
+.container-span {
+  margin: 5px;
+  padding: 5px;
+}
+
+.container-border {
+  margin-left: 65px;
+}
+
+@media (min-width: 479px) {
+.container-flag {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.container-span {
+  margin: 3px;
+  padding: 3px;
+}
+
+.container-border {
+  margin-left: 45px;
+}
 
 }
+
 </style>

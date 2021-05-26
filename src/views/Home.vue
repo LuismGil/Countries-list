@@ -27,6 +27,7 @@ export default {
         (this.countries = countries);
       });
   },
+
   methods: {
     getRegion(reg) {
       api.getRegion(reg)
