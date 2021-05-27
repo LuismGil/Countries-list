@@ -220,7 +220,6 @@ export default {
   margin: 0 auto;
   margin-left: 34px !important;
   width: 280px !important;
-
 }
 
 .form-width {
@@ -242,18 +241,27 @@ export default {
     width: 280px !important;
 }
 
-  @media (min-width:  479px) {
+@media (min-width:  479px) {
 
   .container {
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+  }
+
+  .container-button  {
+    margin-left: 0;
+    margin-top: 28px !important;
+    text-align: center;
+    width: 314px;
   }
 
   .form-input {
     border-width: 1px;
     height: 38px;
-    margin-top: 14px;
+    margin-top: 28px;
     padding: 6px 12px;
+    width: 100%;
   }
 
   .img-width {
@@ -261,4 +269,5 @@ export default {
     width: 320px !important;
   }
 }
+
 </style>
